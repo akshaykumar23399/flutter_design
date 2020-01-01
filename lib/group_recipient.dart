@@ -1,14 +1,17 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_ap/privacy.dart';
 import 'package:flutter_ap/search.dart';
 
 class GroupRecipient extends StatelessWidget {
-  final list = <String>['Sumit', 'Vishal', 'Loki', 'Thor'];
 
+  final list = <String>['Sumit', 'Vishal', 'Loki', 'Thor'];
   final ts = TextStyle(fontFamily: 'Quicksand');
 
   @override
   Widget build(BuildContext context) {
+    final screen = MediaQuery.of(context).size;
     return Scaffold(
       body: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
@@ -81,7 +84,7 @@ class GroupRecipient extends StatelessWidget {
           },
           child: Container(
               height: 40,
-              width: 310,
+              width: screen.width*0.84,
               child: Center(
                 child: Text(
                   'Next',

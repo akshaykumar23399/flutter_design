@@ -3,11 +3,16 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ap/group_finished.dart';
 
-class Privacy extends StatelessWidget {
-  final list = <String>['Private', 'Public'];
+class Privacy extends StatefulWidget {
+  @override
+  _PrivacyState createState() => _PrivacyState();
+}
 
+class _PrivacyState extends State<Privacy> {
+  final list = <String>['Private', 'Public'];
   final ts = TextStyle(fontFamily: 'Quicksand');
   var screen;
+  File file;
 
   @override
   Widget build(BuildContext context) {
@@ -32,20 +37,26 @@ class Privacy extends StatelessWidget {
                   height: 300,
                   decoration: BoxDecoration(color: Colors.teal.shade800),
                   child: Stack(
-                    alignment: AlignmentDirectional.bottomStart,
+                    alignment: AlignmentDirectional.bottomCenter,
                     children: <Widget>[
-                      Image.asset(
-                        'assets/island.jpg',
-                        filterQuality: FilterQuality.low,
-                      ),
+                      if (file == null)
+                        Container(color: Colors.teal.shade800,)
+                      else
+                        SizedBox.expand(
+                          child: Image.file(
+                            file,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       Container(
                         height: 300,
                         color: Colors.grey.withOpacity(.3),
                       ),
                       Center(
                         child: GestureDetector(
-                          onTap: ()async{
-                            File file = await FilePicker.getFile();
+                          onTap: () async {
+                            file = await FilePicker.getFile();
+                            setState(() {});
                           },
                           child: Text(
                             'Upload Cover Photo',
@@ -95,7 +106,8 @@ class Privacy extends StatelessWidget {
         child: RaisedButton(
           color: Colors.lightGreenAccent.shade700,
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (_)=>FinishedScreen()));
+            Navigator.push(
+                context, MaterialPageRoute(builder: (_) => FinishedScreen()));
           },
           child: Container(
               height: 40,
