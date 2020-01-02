@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ap/create_group.dart';
-import 'package:flutter_ap/group_finished.dart';
-import 'package:flutter_ap/profile.dart';
-
 
 void main() => runApp(MyApp());
 
@@ -16,10 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.teal
       ),
-      home: Profile()/*ChangeNotifierProvider<Counter>(
-        builder:(_) => Counter(0),
-        child: MyHomePage(title: 'Flutter Demo Home Page')
-      ),*/
+      home: CreateGroup()
     );
   }
 }

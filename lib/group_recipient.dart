@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_ap/privacy.dart';
 import 'package:flutter_ap/search.dart';

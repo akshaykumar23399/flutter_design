@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:icon_shadow/icon_shadow.dart';
+import 'package:flutter_ap/profile.dart';
 
 class FinishedScreen extends StatelessWidget {
   final ts = TextStyle(fontFamily: 'Quicksand');
@@ -102,7 +101,11 @@ class FinishedScreen extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: RaisedButton(
           color: Colors.lightGreenAccent.shade700,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(
+              builder: (_)=>Profile()
+            ));
+          },
           child: Container(
             height: 40,
             width: 310,

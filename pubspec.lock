@@ -74,13 +74,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  icon_shadow:
-    dependency: "direct main"
-    description:
-      name: icon_shadow
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.1"
   image:
     dependency: transitive
     description:
@@ -123,13 +116,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.4.0"
-  provider:
-    dependency: "direct main"
-    description:
-      name: provider
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.1+1"
   quiver:
     dependency: transitive
     description:
