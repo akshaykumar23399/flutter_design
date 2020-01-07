@@ -15,6 +15,4 @@ class Counter with ChangeNotifier{
     _counter--;
     notifyListeners();
   }
-
-
 }

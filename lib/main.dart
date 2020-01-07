@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ap/create_group.dart';
+import 'package:flutter_ap/group_recipient.dart';
+import 'package:flutter_ap/profile_new.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.teal
       ),
-      home: CreateGroup()
+      home: ProfileNew()
     );
   }
 }

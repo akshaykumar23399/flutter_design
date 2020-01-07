@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatelessWidget {
@@ -11,7 +14,7 @@ class Profile extends StatelessWidget {
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
             SliverAppBar(
-              expandedHeight: 197,
+              expandedHeight: screen.height*.3,
               floating: false,
               pinned: true,
               centerTitle: false,
@@ -25,8 +28,17 @@ class Profile extends StatelessWidget {
                   height: 300,
                   decoration: BoxDecoration(color: Colors.teal.shade800),
                   child: Stack(
-                    alignment: AlignmentDirectional.bottomStart,
-                    children: <Widget>[],
+                    alignment: AlignmentDirectional.bottomEnd,
+                    children: <Widget>[
+                      IconButton(
+                        onPressed: ()async{
+                          File file = await FilePicker.getFile();
+                        },
+                        icon: Icon(Icons.camera_alt, color: Colors.white,),
+
+                      )
+
+                    ],
                   ),
                 ),
               ),

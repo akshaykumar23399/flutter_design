@@ -45,7 +45,7 @@ class FinishedScreen extends StatelessWidget {
               child: Stack(
                 children: <Widget>[
                   Positioned(
-                    left:10,
+                    left: 10,
                     bottom: 0,
                     child: Card(
                         color: Colors.lightGreenAccent.shade700,
@@ -64,7 +64,6 @@ class FinishedScreen extends StatelessWidget {
                         size: 70,
                         color: Colors.white,
                       )),
-
                 ],
               ),
             )
@@ -95,20 +94,20 @@ class FinishedScreen extends StatelessWidget {
             )
           ],
         ),
-
       ),
       floatingActionButton: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: RaisedButton(
-          color: Colors.lightGreenAccent.shade700,
-          onPressed: () {
-            Navigator.push(context, MaterialPageRoute(
-              builder: (_)=>Profile()
-            ));
-          },
-          child: Container(
-            height: 40,
-            width: 310,
+        child: Container(
+          height: 40,
+          width: 310,
+          child: RaisedButton(
+            color: Colors.lightGreenAccent.shade700,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => Profile()),
+              );
+            },
             child: Center(
               child: Text(
                 'Finish',
