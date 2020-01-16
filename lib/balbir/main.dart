@@ -4,6 +4,7 @@ import 'package:flutter_ap/balbir/create_group.dart';
 import 'package:flutter_ap/balbir/create_page.dart';
 import 'package:flutter_ap/balbir/liked_pages.dart';
 import 'package:flutter_ap/balbir/login.dart';
+import 'package:flutter_ap/balbir/post.dart';
 import 'package:flutter_ap/testing/socketConnections.dart';
 import 'package:provider/provider.dart';
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(primarySwatch: Colors.teal),
-        home: LikedPages(),
+        home: Post(),
     );
   }
 

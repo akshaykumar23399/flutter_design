@@ -8,7 +8,9 @@ class LikedPages extends StatefulWidget {
 }
 
 class _LikedPagesState extends State<LikedPages> {
+
   final List<String> list = ['Cars', 'Mobiles', 'Laptop'];
+
   final _ts = TextStyle(fontFamily: 'Quicksand');
 
   @override
