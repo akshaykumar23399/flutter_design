@@ -1,28 +1,21 @@
-import 'dart:io';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ap/group_finished.dart';
+import 'package:flutter_ap/balbir/privacy.dart';
+import 'package:flutter_ap/balbir/search.dart';
 
-class Privacy extends StatefulWidget {
-  @override
-  _PrivacyState createState() => _PrivacyState();
-}
+class GroupRecipient extends StatelessWidget {
 
-class _PrivacyState extends State<Privacy> {
-  final list = <String>['Private', 'Public'];
+  final list = <String>['Sumit', 'Vishal', 'Loki', 'Thor'];
   final ts = TextStyle(fontFamily: 'Quicksand');
-  var screen;
-  File file;
 
   @override
   Widget build(BuildContext context) {
-    screen = MediaQuery.of(context).size;
+    final screen = MediaQuery.of(context).size;
     return Scaffold(
       body: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
             SliverAppBar(
-              expandedHeight: 197,
+              expandedHeight: 200.0,
               floating: false,
               pinned: true,
               leading: IconButton(
@@ -33,45 +26,19 @@ class _PrivacyState extends State<Privacy> {
               centerTitle: false,
               flexibleSpace: FlexibleSpaceBar(
                 centerTitle: false,
+                /*title: Text("Create Group",
+                    style: ts),*/
                 background: Container(
                   height: 300,
                   decoration: BoxDecoration(color: Colors.teal.shade800),
                   child: Stack(
-                    alignment: AlignmentDirectional.bottomCenter,
+                    alignment: AlignmentDirectional.bottomStart,
                     children: <Widget>[
-                      if (file == null)
-                        Container(color: Colors.teal.shade800,)
-                      else
-                        SizedBox.expand(
-                          child: Image.file(
-                            file,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      Container(
-                        height: 300,
-                        color: Colors.grey.withOpacity(.3),
-                      ),
-                      Center(
-                        child: GestureDetector(
-                          onTap: () async {
-                            file = await FilePicker.getFile();
-                            setState(() {});
-                          },
-                          child: Text(
-                            'Upload Cover Photo',
-                            style: ts.copyWith(
-                                color: Colors.white,
-                                fontSize: 25,
-                                fontWeight: FontWeight.w700),
-                          ),
-                        ),
-                      ),
                       Positioned(
                         left: 20,
                         bottom: 20,
                         child: Text(
-                          'Privacy',
+                          'Add People',
                           style: ts.copyWith(
                               color: Colors.white,
                               fontSize: 30,
@@ -82,9 +49,13 @@ class _PrivacyState extends State<Privacy> {
                         right: 20,
                         bottom: 20,
                         child: FloatingActionButton(
-                          onPressed: () {},
+                          tooltip: 'Search People',
+                          onPressed: () {
+                            showSearch(
+                                context: context, delegate: CustomSearch());
+                          },
                           backgroundColor: Colors.lightGreenAccent.shade700,
-                          child: Icon(Icons.camera_alt),
+                          child: Icon(Icons.search),
                         ),
                       ),
                     ],
@@ -107,11 +78,11 @@ class _PrivacyState extends State<Privacy> {
           color: Colors.lightGreenAccent.shade700,
           onPressed: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (_) => FinishedScreen()));
+                context, MaterialPageRoute(builder: (_) => Privacy()));
           },
           child: Container(
               height: 40,
-              width: 310,
+              width: screen.width*0.84,
               child: Center(
                 child: Text(
                   'Next',
@@ -130,41 +101,25 @@ class _PrivacyState extends State<Privacy> {
         decoration: BoxDecoration(
             color: Colors.grey.shade200,
             borderRadius: BorderRadius.circular(10)),
+        height: 60,
         child: Row(
           children: <Widget>[
             SizedBox(
+              width: 15,
+            ),
+            CircleAvatar(
+              child: Icon(Icons.person),
+            ),
+            SizedBox(
               width: 20,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    list[index],
-                    style:
-                        ts.copyWith(fontSize: 20, fontWeight: FontWeight.w500),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Container(
-                    width: screen.width * 0.72,
-                    child: Text(
-                      "Make sure that the parent widget limits your text's width, and then use overflow and maxlines",
-                      style: ts.copyWith(
-                          fontSize: 16, fontWeight: FontWeight.w400),
-                      softWrap: true,
-                      maxLines: 6,
-                    ),
-                  ),
-                ],
-              ),
+            Text(
+              list[index],
+              style: ts.copyWith(fontSize: 18, fontWeight: FontWeight.w500),
             ),
             Spacer(),
             Icon(
-              (list[index] == 'Private')
+              (list[index] == 'Loki')
                   ? Icons.check_box
                   : Icons.check_box_outline_blank,
               color: Colors.green.shade700,

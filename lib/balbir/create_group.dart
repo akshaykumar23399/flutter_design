@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ap/group_recipient.dart';
+import 'package:flutter_ap/balbir/group_recipient.dart';
 
 class CreateGroup extends StatelessWidget {
   final ts = TextStyle(fontFamily: 'Quicksand');

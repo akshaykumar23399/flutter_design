@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ap/profile.dart';
+import 'package:flutter_ap/balbir/profile.dart';
 
 class FinishedScreen extends StatelessWidget {
   final ts = TextStyle(fontFamily: 'Quicksand');

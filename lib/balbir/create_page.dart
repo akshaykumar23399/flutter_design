@@ -1,3 +1,4 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chips_input/flutter_chips_input.dart';
@@ -27,6 +28,15 @@ class _CreatePageState extends State<CreatePage> {
 
   List<String> selectedCategories =[];
 
+  final profileURL = 'https://encrypted-tbn0.gstatic.com/'
+      'images?q=tbn:ANd9GcRPyKlEV86yRzGsebr'
+      '3AsVOq88NoMknLrYDrb5vKITcDcIXd_my&s';
+
+  final String imageURL = 'https://'
+      'images.pexels.com/photos/247599/'
+      'pexels-photo-247599.jpeg?auto=compress&cs'
+      '=tinysrgb&dpr=1&w=500';
+
   @override
   Widget build(BuildContext context) {
 
@@ -50,22 +60,25 @@ class _CreatePageState extends State<CreatePage> {
             Stack(
               children: <Widget>[
                 Image.network(
-                  'https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+                  imageURL,
                   height: _screen.height * 0.3,
                   width: _screen.width,
                   fit: BoxFit.cover,
                 ),
+                
                 Positioned(
                   left: 20,
                   top: 20,
                   child: CircleAvatar(
                     child: IconButton(
                       icon: Icon(Icons.add_a_photo),
-                      onPressed: () {},
+                      onPressed: () {
+                        final file = FilePicker.getFile();
+                      },
                     ),
                     radius: 35,
                     backgroundImage: NetworkImage(
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPyKlEV86yRzGsebr3AsVOq88NoMknLrYDrb5vKITcDcIXd_my&s'),
+                        profileURL),
                   ),
                 ),
                 Positioned(
@@ -81,7 +94,9 @@ class _CreatePageState extends State<CreatePage> {
                         color: Colors.white,
                         size: 30,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        final file = FilePicker.getFile();
+                      },
                     ),
                   ),
                 )
@@ -197,7 +212,7 @@ class _CreatePageState extends State<CreatePage> {
                                       .indexOf(lowercaseQuery)
                                       .compareTo(b
                                           .toLowerCase()
-                                          .indexOf(lowercaseQuery)  ));
+                                          .indexOf(lowercaseQuery)));
                               }
                               return listOfCategories;
                             },
